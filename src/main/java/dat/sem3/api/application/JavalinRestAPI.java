@@ -25,16 +25,12 @@ public class JavalinRestAPI implements IRestApplication{
         module.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer());
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(module);
-        app = Javalin.create(config -> {
-            config.jsonMapper(new JavalinJackson(mapper));
-        });
+        app = Javalin.create(config -> config.jsonMapper(new JavalinJackson(mapper)));
     }
 
     @Override
     public void setup() {
-        app.get("/", ctx -> {
-            ctx.result("Hello world");
-        });
+        app.get("/", ctx -> ctx.result("Hello world"));
 
         app.routes(() -> {
             path("api", () -> {

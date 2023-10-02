@@ -23,7 +23,7 @@ public class ChampionController {
         } else {
             ctx.json(champion.get());
         }
-    };
+    }
 
     public static void getAllChampions(Context ctx) {
         List<Champion> champions;

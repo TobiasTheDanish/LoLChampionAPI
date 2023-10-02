@@ -2,7 +2,6 @@ package dat.sem3.api.util;
 
 import dat.sem3.parsing.*;
 import dat.sem3.parsing.exceptions.ParseException;
-import dat.sem3.persistence.model.Champion;
 
 import java.util.List;
 import java.util.function.Predicate;

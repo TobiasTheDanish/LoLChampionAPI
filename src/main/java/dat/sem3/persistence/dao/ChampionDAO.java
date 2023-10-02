@@ -3,7 +3,6 @@ package dat.sem3.persistence.dao;
 import dat.sem3.persistence.config.HibernateConfig;
 import dat.sem3.persistence.model.Champion;
 import dat.sem3.util.ChampionSortableFields;
-import jakarta.persistence.Parameter;
 import jakarta.persistence.Tuple;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Hibernate;

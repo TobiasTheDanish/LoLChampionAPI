@@ -51,9 +51,7 @@ public class Scraper {
 
         championRows.stream()
                 .skip(1)
-                .forEach(element -> {
-                    championDTOS.add(getChampionDTO(element));
-                });
+                .forEach(element -> championDTOS.add(getChampionDTO(element)));
         return championDTOS;
     }
 
