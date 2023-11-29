@@ -17,7 +17,7 @@ public class Main {
         List<String> input = Arrays.stream(new String[]{"champion.details.positions = Middle", "champion.details.rangeType != Ranged", "champion.title *= the"}).collect(Collectors.toList());
         List<Predicate<ParserTest>> res = QueryParamParser.parseFilters(input, ParserTest.class);
 
-        Stream<Champion> champions = new ChampionDAO("lol_db").findAll().stream();
+        Stream<Champion> champions = new ChampionDAO().findAll().stream();
         List<ParserTest> tests = new ArrayList<>();
         champions.forEach(champion -> tests.add(new ParserTest(champion)));
 

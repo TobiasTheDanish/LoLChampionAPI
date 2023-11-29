@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
 
 public class ScrapingController {
     private static final ExecutorService executorService = Executors.newCachedThreadPool();
-    private static final ChampionDAO championDAO = new ChampionDAO("lol_db");
+    private static final ChampionDAO championDAO = new ChampionDAO();
     private static ScrapingResponse mostRecentResponse = new ScrapingResponse();
 
     public static void beginScrape(Context ctx) {

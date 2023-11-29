@@ -12,8 +12,8 @@ import java.util.Optional;
 import java.util.Random;
 
 public class ChampionDAO extends ADataAccessObject<Champion> {
-    public ChampionDAO(String dbName) {
-        super(HibernateConfig.getEntityManagerFactoryConfig(dbName));
+    public ChampionDAO() {
+        super(HibernateConfig.getEntityManagerFactory());
     }
 
     /**

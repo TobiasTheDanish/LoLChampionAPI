@@ -12,7 +12,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ChampionController {
-    private final static ChampionDAO dao = new ChampionDAO("lol_db");
+    private final static ChampionDAO dao = new ChampionDAO();
 
     public static void getByName(Context ctx) {
         String name = ctx.pathParam("name");
