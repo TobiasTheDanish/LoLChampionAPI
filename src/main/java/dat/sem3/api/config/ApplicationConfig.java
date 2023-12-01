@@ -10,7 +10,6 @@ import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
 import io.javalin.json.JavalinJackson;
 import io.javalin.plugin.bundled.RouteOverviewPlugin;
-import io.javalin.security.AccessManager;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
@@ -30,6 +29,7 @@ public class ApplicationConfig {
 
         // http
         config.http.defaultContentType = "application/json"; // default content type for requests
+        config.accessManager(new AccessManager());
 
         // routing
         config.routing.ignoreTrailingSlashes = true; // removes trailing slashes for all routes
