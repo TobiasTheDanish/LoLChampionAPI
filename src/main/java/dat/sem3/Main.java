@@ -7,6 +7,6 @@ public class Main {
     public static void main(String[] args) {
         IRestApplication app = new JavalinRestAPI();
         app.setup();
-        app.start(42069);
+        app.start(3000);
     }
 }
