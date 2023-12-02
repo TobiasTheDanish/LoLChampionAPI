@@ -8,6 +8,8 @@ import dat.sem3.persistence.model.Champion;
 import dat.sem3.persistence.model.ChampionDetails;
 import dat.sem3.persistence.webscraping.Scraper;
 import io.javalin.Javalin;
+import io.javalin.http.Header;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -37,6 +39,7 @@ class ChampionControllerTest {
         emfTest = HibernateConfig.getEntityManagerFactory();
         app = Javalin.create();
         ApplicationConfig.startServer(app, 7777);
+        RestAssured.baseURI = BASE_URL;
     }
 
     @BeforeEach
@@ -76,9 +79,10 @@ class ChampionControllerTest {
     @Test
     void getByName() {
         ChampionDetails details = given()
-                .contentType(ContentType.JSON)
+                .accept("application/json")
                 .when()
-                .get(BASE_URL + "/champions/Aatrox")
+                .get("/champions/Aatrox")
+                .prettyPeek()
                 .then()
                 .statusCode(200)
                 .body("name", equalTo("Aatrox"))
@@ -91,9 +95,10 @@ class ChampionControllerTest {
     @Test
     void getAllChampions() {
         List<Champion> champions = given()
-                .contentType(ContentType.JSON)
+                .accept("application/json")
                 .when()
-                .get(BASE_URL + "/champions")
+                .get("/champions")
+                .prettyPeek()
                 .then()
                 .statusCode(200)
                 .extract().body().jsonPath().getList("");
@@ -104,9 +109,10 @@ class ChampionControllerTest {
     @Test
     void getNewestChampion() {
         ChampionDetails details = given()
-                .contentType(ContentType.JSON)
+                .accept("application/json")
                 .when()
-                .get(BASE_URL + "/champions/newest")
+                .get("/champions/newest")
+                .prettyPeek()
                 .then()
                 .statusCode(200)
                 .body("name", equalTo("Vex"))

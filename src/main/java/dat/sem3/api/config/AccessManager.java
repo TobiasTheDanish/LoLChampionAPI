@@ -13,5 +13,7 @@ public class AccessManager implements io.javalin.security.AccessManager {
     public void manage(@NotNull Handler handler, @NotNull Context context, @NotNull Set<? extends RouteRole> set) throws Exception {
         context.header(Header.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         context.header(Header.ACCESS_CONTROL_ALLOW_METHODS, "GET");
+
+        handler.handle(context);
     }
 }
